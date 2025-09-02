@@ -11,6 +11,7 @@ body {
   background-color: #f6f6f6;
   color: #333;
   padding: 20px;
+  line-height: 1.6;
 }
 
 /* Container central */
@@ -26,9 +27,10 @@ body {
 
 /* Título principal */
 .container h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   color: #2c3e50;
+  font-weight: bold;
 }
 
 /* Imagem da capa do eBook */
@@ -44,12 +46,15 @@ body {
   font-size: 1.1rem;
   margin-bottom: 25px;
   color: #444;
+  line-height: 1.6;
 }
 
 /* Valor */
 h2 {
   color: #27ae60;
   margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 /* Seção do Pix */
@@ -79,6 +84,7 @@ h2 {
   font-size: 0.95rem;
   margin-top: 30px;
   color: #555;
+  line-height: 1.5;
 }
 
 /* Informações de contato */
@@ -86,4 +92,175 @@ h2 {
   margin-top: 10px;
   font-size: 0.95rem;
   line-height: 1.5;
+  color: #555;
+}
+
+/* Estilo do botão de compra */
+button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2ecc71;
+}
+
+/* Barra de Pesquisa */
+.search-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  padding: 12px 20px;
+  background-color: #1a237e;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #283593;
+}
+
+/* Seção Quem Somos */
+#quem-somos {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+#quem-somos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+/* Outros produtos e avaliações */
+.outros-ebooks {
+  margin-top: 40px;
+}
+
+.outros-ebooks h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a237e;
+}
+
+/* Estilo do produto */
+.produto {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.produto img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.produto-info {
+  max-width: 700px;
+  padding-left: 20px;
+}
+
+.produto h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.produto p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.produto .valor {
+  font-size: 1.5rem;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.produto button {
+  background-color: #27ae60;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.produto button:hover {
+  background-color: #2ecc71;
+}
+
+/* Avaliações */
+.avaliacoes {
+  margin-top: 40px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.avaliacao {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.avaliacao h4 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.avaliacao p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.avaliacao span {
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+/* Footer */
+footer {
+  background-color: #1a237e;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 1rem;
 }
