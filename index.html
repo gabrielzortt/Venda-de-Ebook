@@ -31,14 +31,14 @@
     <h2>eBook em Destaque</h2>
     
     <!-- Produto real com imagem -->
-    <div class="produto destaque">
+    <div class="produto destaque" data-nome="como ganhar dinheiro pelo celular">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
         <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
         <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
         <div class="valor">💰 R$ 19,90</div>
-        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
+        <button class="btn-comprar" onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
           📲 Comprar Agora
         </button>
       </div>
@@ -47,7 +47,7 @@
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
       <!-- Produto 2 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="empreendedorismo digital para iniciantes">
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Produto 3 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="investindo para iniciantes - comece com r$ 100">
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Produto 4 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="vendas online - como criar seu negócio">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -146,17 +146,17 @@
       });
     });
 
-    // Pesquisa em tempo real
+    // Pesquisa funcional
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    function filtrarProdutos() {
+
+    searchInput.addEventListener("input", () => {
       const termo = searchInput.value.toLowerCase();
       produtos.forEach(produto => {
-        const texto = produto.innerText.toLowerCase();
-        produto.style.display = texto.includes(termo) ? "flex" : "none";
+        const nome = produto.dataset.nome;
+        produto.style.display = nome.includes(termo) ? "flex" : "none";
       });
-    }
-    searchInput.addEventListener("input", filtrarProdutos);
+    });
   </script>
 </body>
 </html>
