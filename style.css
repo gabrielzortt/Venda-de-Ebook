@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
   font-family: Arial, sans-serif;
   background-color: #f6f6f6;
@@ -51,7 +50,7 @@ body {
   color: #1a237e;
 }
 
-/* Seção de Produtos */
+/* Seção Produtos */
 .outros-ebooks h2 {
   font-size: 2rem;
   text-align: center;
@@ -59,7 +58,6 @@ body {
   color: #1a237e;
 }
 
-/* Produto em destaque */
 .produto.destaque {
   display: flex;
   flex-direction: row;
@@ -115,11 +113,12 @@ button {
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #283593;
+  transform: scale(1.05);
 }
 
 /* Produtos sem imagem */
@@ -135,6 +134,79 @@ button:hover {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* FAQ */
+#duvidas, #avaliacoes, #ajuda {
+  max-width: 900px;
+  margin: 50px auto;
+}
+
+#duvidas h2, #avaliacoes h2, #ajuda h2 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.faq .pergunta {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.faq .pergunta:hover {
+  transform: translateY(-2px);
+}
+
+.faq .pergunta h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.faq .pergunta p {
+  display: none;
+  margin-top: 5px;
+  color: #444;
+}
+
+/* Avaliações */
+.avaliacoes-geral .avaliacao {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.avaliacoes-geral .avaliacao:hover {
+  transform: translateY(-2px);
+}
+
+.avaliacoes-geral .avaliacao h4 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.avaliacoes-geral .avaliacao span {
+  color: #ffb400;
+  font-size: 1.1rem;
+}
+
+/* Ajuda */
+#ajuda {
+  text-align: center;
+}
+
+#ajuda p.telefone {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .produto.destaque {
@@ -148,7 +220,7 @@ button:hover {
     margin-bottom: 15px;
   }
 
-  .grid-produtos .produto {
+  .grid-produtos .produto, .faq .pergunta, .avaliacoes-geral .avaliacao {
     text-align: center;
   }
 
