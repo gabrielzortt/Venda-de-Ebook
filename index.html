@@ -8,113 +8,70 @@
 </head>
 <body>
   <!-- Barra de pesquisa -->
-  <div class="search-container">
-    <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
-    <button class="search-button">🔍 Pesquisar</button>
-  </div>
+  <header>
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
+      <button class="search-button">🔍 Pesquisar</button>
+    </div>
+  </header>
 
   <!-- Seção de Quem Somos -->
   <section id="quem-somos">
     <h2>Quem Somos</h2>
     <p>
-      Na Creators of the Future, nossa missão é ajudar jovens e microempreendedores a conquistarem a liberdade financeira através de eBooks e cursos digitais. Oferecemos uma plataforma segura e fácil de usar para adquirir conhecimentos práticos e diretos sobre como iniciar e escalar negócios digitais. Junte-se a nós nessa jornada e transforme sua vida financeira!
+      Na <strong>Creators of the Future</strong>, nossa missão é ajudar jovens e microempreendedores a conquistarem a liberdade financeira através de eBooks e cursos digitais. Oferecemos uma plataforma segura e prática para adquirir conhecimentos diretos sobre negócios digitais. 🚀
     </p>
   </section>
 
   <!-- Seção de Produtos (Ebooks) -->
   <section class="outros-ebooks">
     <h2>Outros eBooks que Você Vai Adorar!</h2>
+    <div class="grid-produtos">
+      
+      <!-- Produto 1 -->
+      <div class="produto">
+        <img src="https://placehold.co/300x400?text=Ebook+1" alt="Como Ganhar Dinheiro com o Celular" />
+        <div class="produto-info">
+          <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
+          <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
+          <div class="valor">💰 R$ 19,90</div>
+          <button>📲 Comprar Agora</button>
+        </div>
+      </div>
 
-    <!-- Produto 1 -->
-    <div class="produto">
-      <img src="images/ebook1.jpg" alt="Como Ganhar Dinheiro com o Celular" />
-      <div class="produto-info">
-        <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
-        <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
-        <div class="valor">💰 R$ 19,90</div>
-        <button>📲 Comprar Agora</button>
-      </div>
-      <div class="avaliacoes">
-        <div class="avaliacao">
-          <h4>Lucas M.</h4>
-          <p>Excelente conteúdo! As dicas para começar a ganhar dinheiro com meu celular foram incríveis. Recomendo a todos!</p>
-          <span>⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="avaliacao">
-          <h4>Julia T.</h4>
-          <p>Ótimo material, mas acredito que faltaram alguns exemplos práticos. Mesmo assim, me ajudou a dar o primeiro passo.</p>
-          <span>⭐⭐⭐⭐☆</span>
+      <!-- Produto 2 -->
+      <div class="produto">
+        <img src="https://placehold.co/300x400?text=Ebook+2" alt="Empreendedorismo Digital para Iniciantes" />
+        <div class="produto-info">
+          <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
+          <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
+          <div class="valor">💰 R$ 29,90</div>
+          <button>📲 Comprar Agora</button>
         </div>
       </div>
-    </div>
 
-    <!-- Produto 2 -->
-    <div class="produto">
-      <img src="images/ebook2.jpg" alt="Empreendedorismo Digital para Iniciantes" />
-      <div class="produto-info">
-        <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
-        <p>Aprenda a criar e gerir seu próprio negócio digital com um baixo investimento inicial. O guia completo para quem quer empreender de forma simples e eficiente!</p>
-        <div class="valor">💰 R$ 29,90</div>
-        <button>📲 Comprar Agora</button>
-      </div>
-      <div class="avaliacoes">
-        <div class="avaliacao">
-          <h4>Carlos P.</h4>
-          <p>Ótimo conteúdo, ideal para quem está começando. A parte sobre marketing digital foi excelente!</p>
-          <span>⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="avaliacao">
-          <h4>Mariana S.</h4>
-          <p>O eBook tem conteúdo bom, mas achei que poderia ter mais exemplos práticos. Ainda assim, vale a pena!</p>
-          <span>⭐⭐⭐⭐☆</span>
+      <!-- Produto 3 -->
+      <div class="produto">
+        <img src="https://placehold.co/300x400?text=Ebook+3" alt="Investindo para Iniciantes - Comece com R$ 100" />
+        <div class="produto-info">
+          <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
+          <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
+          <div class="valor">💰 R$ 19,90</div>
+          <button>📲 Comprar Agora</button>
         </div>
       </div>
-    </div>
 
-    <!-- Produto 3 -->
-    <div class="produto">
-      <img src="images/ebook3.jpg" alt="Investindo para Iniciantes - Comece com R$ 100" />
-      <div class="produto-info">
-        <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
-        <p>Descubra como fazer investimentos de baixo risco com pouco dinheiro. Ideal para iniciantes no mundo dos investimentos financeiros!</p>
-        <div class="valor">💰 R$ 19,90</div>
-        <button>📲 Comprar Agora</button>
-      </div>
-      <div class="avaliacoes">
-        <div class="avaliacao">
-          <h4>Fernando G.</h4>
-          <p>Excelente introdução ao mercado financeiro! Agora estou mais seguro para começar a investir.</p>
-          <span>⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="avaliacao">
-          <h4>Ana C.</h4>
-          <p>O conteúdo é bom, mas senti falta de mais explicações sobre os tipos de investimentos a longo prazo.</p>
-          <span>⭐⭐⭐⭐☆</span>
+      <!-- Produto 4 -->
+      <div class="produto">
+        <img src="https://placehold.co/300x400?text=Ebook+4" alt="Vendas Online - Como Criar Seu Negócio no Mercado Digital" />
+        <div class="produto-info">
+          <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
+          <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
+          <div class="valor">💰 R$ 39,90</div>
+          <button>📲 Comprar Agora</button>
         </div>
       </div>
-    </div>
 
-    <!-- Produto 4 -->
-    <div class="produto">
-      <img src="images/ebook4.jpg" alt="Vendas Online - Como Criar Seu Negócio no Mercado Digital" />
-      <div class="produto-info">
-        <h3>💻 Vendas Online - Como Criar Seu Negócio no Mercado Digital</h3>
-        <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada. Torne-se um expert em marketing digital!</p>
-        <div class="valor">💰 R$ 39,90</div>
-        <button>📲 Comprar Agora</button>
-      </div>
-      <div class="avaliacoes">
-        <div class="avaliacao">
-          <h4>Carlos D.</h4>
-          <p>Este eBook me ajudou a montar minha loja online do zero. As dicas de anúncios e estratégias de venda são top!</p>
-          <span>⭐⭐⭐⭐⭐</span>
-        </div>
-        <div class="avaliacao">
-          <h4>Patricia S.</h4>
-          <p>Material bem explicativo. Me deu as bases para começar no marketing digital, mas seria ótimo incluir mais exemplos práticos.</p>
-          <span>⭐⭐⭐⭐☆</span>
-        </div>
-      </div>
     </div>
   </section>
 
