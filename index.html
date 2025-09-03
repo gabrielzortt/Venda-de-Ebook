@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- Barra de pesquisa -->
   <header>
     <div class="search-container">
@@ -26,28 +27,24 @@
     </p>
   </section>
 
-  <!-- Seção de Produtos -->
+  <!-- Seção Produtos -->
   <section class="outros-ebooks">
     <h2>eBook em Destaque</h2>
     
-    <!-- Produto real com imagem -->
-    <div class="produto destaque" data-nome="Como Ganhar Dinheiro com o Celular">
+    <div class="produto destaque">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
         <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
         <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
         <div class="valor">💰 R$ 19,90</div>
-        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
-          📲 Comprar Agora
-        </button>
+        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">📲 Comprar Agora</button>
       </div>
     </div>
 
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
-      <!-- Produto 2 sem imagem -->
-      <div class="produto" data-nome="Empreendedorismo Digital para Iniciantes">
+      <div class="produto">
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -55,9 +52,7 @@
           <button>📲 Comprar Agora</button>
         </div>
       </div>
-
-      <!-- Produto 3 sem imagem -->
-      <div class="produto" data-nome="Investindo para Iniciantes - Comece com R$ 100">
+      <div class="produto">
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -65,9 +60,7 @@
           <button>📲 Comprar Agora</button>
         </div>
       </div>
-
-      <!-- Produto 4 sem imagem -->
-      <div class="produto" data-nome="Vendas Online - Como Criar Seu Negócio">
+      <div class="produto">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -78,7 +71,7 @@
     </div>
   </section>
 
-  <!-- Seção de Dúvidas Frequentes -->
+  <!-- FAQ -->
   <section id="duvidas">
     <h2>Dúvidas Frequentes</h2>
     <div class="faq">
@@ -101,7 +94,7 @@
     </div>
   </section>
 
-  <!-- Seção de Avaliações -->
+  <!-- Avaliações -->
   <section id="avaliacoes">
     <h2>Avaliações dos Usuários</h2>
     <div class="avaliacoes-geral">
@@ -123,10 +116,10 @@
     </div>
   </section>
 
-  <!-- Seção de Ajuda -->
+  <!-- Ajuda -->
   <section id="ajuda">
     <h2>Precisa de Ajuda?</h2>
-    <p>Se tiver qualquer dúvida ou problema, entre em contato conosco pelo telefone:</p>
+    <p>Entre em contato pelo telefone:</p>
     <p class="telefone">📞 (92) 99427-4276</p>
   </section>
 
@@ -137,69 +130,36 @@
 
   <!-- Scripts -->
   <script>
-    // FAQ interativo
+    // FAQ toggle
     const perguntas = document.querySelectorAll('.faq .pergunta');
-    perguntas.forEach(pergunta => {
-      pergunta.addEventListener('click', () => {
-        pergunta.classList.toggle('aberto');
+    perguntas.forEach(p => {
+      p.addEventListener('click', () => {
+        p.classList.toggle('aberto');
       });
     });
 
-    // Pesquisa em tempo real
+    // Pesquisa
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    const outrosProdutos = document.querySelector(".grid-produtos");
-    function filtrarProdutos() {
+    searchInput.addEventListener("input", () => {
       const termo = searchInput.value.toLowerCase().trim();
-      let encontrou = false;
-
+      let encontrado = false;
       produtos.forEach(produto => {
-        const nome = produto.dataset.nome.toLowerCase();
-        if (nome.includes(termo)) {
+        const texto = produto.innerText.toLowerCase();
+        if (termo === "") {
           produto.style.display = "flex";
-          encontrou = true;
+        } else if (texto.includes(termo)) {
+          produto.style.display = "flex";
+          encontrado = true;
         } else {
           produto.style.display = "none";
         }
       });
-
-      if(termo === "") {
-        produtos.forEach(produto => produto.style.display = "flex");
+      if (termo !== "" && !encontrado) {
+        alert("Produto não identificado!");
       }
-
-      if(!encontrou && termo !== "") {
-        outrosProdutos.innerHTML = '<p style="text-align:center; color:red;">Produto não identificado</p>';
-      } else {
-        // restaurar grid se havia sido sobrescrito
-        document.querySelector(".grid-produtos").innerHTML = `
-          <div class="produto" data-nome="Empreendedorismo Digital para Iniciantes">
-            <div class="produto-info">
-              <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
-              <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
-              <div class="valor">💰 R$ 29,90</div>
-              <button>📲 Comprar Agora</button>
-            </div>
-          </div>
-          <div class="produto" data-nome="Investindo para Iniciantes - Comece com R$ 100">
-            <div class="produto-info">
-              <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
-              <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
-              <div class="valor">💰 R$ 19,90</div>
-              <button>📲 Comprar Agora</button>
-            </div>
-          </div>
-          <div class="produto" data-nome="Vendas Online - Como Criar Seu Negócio">
-            <div class="produto-info">
-              <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
-              <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
-              <div class="valor">💰 R$ 39,90</div>
-              <button>📲 Comprar Agora</button>
-            </div>
-          </div>
-        `;
-      }
-    }
-    searchInput.addEventListener("input", filtrarProdutos);
+    });
   </script>
+
 </body>
 </html>
