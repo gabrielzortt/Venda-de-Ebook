@@ -31,22 +31,7 @@ body {
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.search-button {
-  padding: 12px 20px;
-  background-color: #1a237e;
-  color: white;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.search-button:hover {
-  background-color: #283593;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* Seção Quem Somos */
@@ -67,33 +52,36 @@ body {
 }
 
 /* Seção de Produtos */
-.outros-ebooks {
-  margin-top: 40px;
-}
-
 .outros-ebooks h2 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 30px 0;
   color: #1a237e;
 }
 
-/* Estilo do produto */
-.produto {
+/* Produto em destaque */
+.produto.destaque {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-  padding: 20px 0;
   gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-.produto img {
-  width: 150px;
-  height: 225px;
-  border-radius: 10px;
+.produto.destaque:hover {
+  transform: scale(1.02);
+}
+
+.produto.destaque img {
+  width: 200px;
+  height: 300px;
   object-fit: cover;
+  border-radius: 12px;
 }
 
 .produto-info {
@@ -134,21 +122,32 @@ button:hover {
   background-color: #283593;
 }
 
+/* Produtos sem imagem */
+.grid-produtos .produto {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
-  .produto {
+  .produto.destaque {
     flex-direction: column;
     text-align: center;
   }
 
-  .produto img {
-    width: 100px;
-    height: 150px;
+  .produto.destaque img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
   }
 
-  .produto-info {
-    margin-left: 0;
-    margin-top: 10px;
+  .grid-produtos .produto {
+    text-align: center;
   }
 
   button {
