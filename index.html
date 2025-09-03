@@ -11,37 +11,36 @@
   <header>
     <div class="search-container">
       <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
-      <button class="search-button">🔍 Pesquisar</button>
     </div>
   </header>
 
-  <!-- Seção de Quem Somos -->
+  <!-- Seção Quem Somos -->
   <section id="quem-somos">
     <h2>Quem Somos</h2>
     <p>
-      Na <strong>Creators of the Future</strong>, nossa missão é ajudar jovens e microempreendedores a conquistarem a liberdade financeira através de eBooks e cursos digitais. Oferecemos uma plataforma segura e prática para adquirir conhecimentos diretos sobre negócios digitais. 🚀
+      Na <strong>Creators of the Future</strong>, nossa missão é ajudar jovens e microempreendedores a conquistarem a liberdade financeira através de eBooks e cursos digitais. 🚀
     </p>
   </section>
 
-  <!-- Seção de Produtos (Ebooks) -->
+  <!-- Seção de Produtos -->
   <section class="outros-ebooks">
-    <h2>Outros eBooks que Você Vai Adorar!</h2>
-    <div class="grid-produtos">
-      
-      <!-- Produto 1 -->
-      <div class="produto">
-        <img src="https://placehold.co/300x400?text=Ebook+1" alt="Como Ganhar Dinheiro com o Celular" />
-        <div class="produto-info">
-          <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
-          <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
-          <div class="valor">💰 R$ 19,90</div>
-          <button>📲 Comprar Agora</button>
-        </div>
+    <h2>eBook em Destaque</h2>
+    
+    <!-- Produto real com imagem -->
+    <div class="produto destaque">
+      <img src="https://placehold.co/300x400?text=Ebook+Celular" alt="Como Ganhar Dinheiro com o Celular" />
+      <div class="produto-info">
+        <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
+        <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
+        <div class="valor">💰 R$ 19,90</div>
+        <button>📲 Comprar Agora</button>
       </div>
+    </div>
 
-      <!-- Produto 2 -->
+    <h2>Outros eBooks</h2>
+    <div class="grid-produtos">
+      <!-- Produto 2 sem imagem -->
       <div class="produto">
-        <img src="https://placehold.co/300x400?text=Ebook+2" alt="Empreendedorismo Digital para Iniciantes" />
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -50,9 +49,8 @@
         </div>
       </div>
 
-      <!-- Produto 3 -->
+      <!-- Produto 3 sem imagem -->
       <div class="produto">
-        <img src="https://placehold.co/300x400?text=Ebook+3" alt="Investindo para Iniciantes - Comece com R$ 100" />
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -61,9 +59,8 @@
         </div>
       </div>
 
-      <!-- Produto 4 -->
+      <!-- Produto 4 sem imagem -->
       <div class="produto">
-        <img src="https://placehold.co/300x400?text=Ebook+4" alt="Vendas Online - Como Criar Seu Negócio no Mercado Digital" />
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -71,12 +68,33 @@
           <button>📲 Comprar Agora</button>
         </div>
       </div>
-
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Creators of the Future - Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Script de pesquisa em tempo real -->
+  <script>
+    const searchInput = document.querySelector(".search-bar");
+    const produtos = document.querySelectorAll(".produto");
+
+    function filtrarProdutos() {
+      const termo = searchInput.value.toLowerCase();
+      let count = 0;
+      produtos.forEach(produto => {
+        const texto = produto.innerText.toLowerCase();
+        if (texto.includes(termo)) {
+          produto.style.display = "flex";
+          count++;
+        } else {
+          produto.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filtrarProdutos);
+  </script>
 </body>
 </html>
