@@ -14,6 +14,9 @@
     </div>
   </header>
 
+  <!-- Mensagem de erro de pesquisa -->
+  <div id="erro-pesquisa" class="erro-pesquisa">Produto não identificado 😕</div>
+
   <!-- Seção Quem Somos -->
   <section id="quem-somos">
     <h2>Quem Somos</h2>
@@ -27,18 +30,18 @@
   </section>
 
   <!-- Seção de Produtos -->
-  <section class="outros-ebooks">
+  <section class="outros-ebooks" id="produtos">
     <h2>eBook em Destaque</h2>
     
     <!-- Produto real com imagem -->
-    <div class="produto destaque" data-nome="como ganhar dinheiro pelo celular">
+    <div class="produto destaque" data-nome="como ganhar dinheiro com o celular">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
         <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
         <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
         <div class="valor">💰 R$ 19,90</div>
-        <button class="btn-comprar" onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
+        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
           📲 Comprar Agora
         </button>
       </div>
@@ -146,17 +149,42 @@
       });
     });
 
-    // Pesquisa funcional
+    // Pesquisa em tempo real avançada
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
+    const quemSomos = document.getElementById("quem-somos");
+    const outrosEbooks = document.getElementById("produtos");
+    const erro = document.getElementById("erro-pesquisa");
 
-    searchInput.addEventListener("input", () => {
-      const termo = searchInput.value.toLowerCase();
+    function filtrarProdutos() {
+      const termo = searchInput.value.toLowerCase().trim();
+      let encontrou = false;
+
+      if (termo === "") {
+        quemSomos.style.display = "block";
+        outrosEbooks.style.display = "block";
+        erro.style.display = "none";
+        produtos.forEach(produto => produto.style.display = "flex");
+        return;
+      }
+
       produtos.forEach(produto => {
-        const nome = produto.dataset.nome;
-        produto.style.display = nome.includes(termo) ? "flex" : "none";
+        const nome = produto.getAttribute("data-nome").toLowerCase();
+        if (nome.includes(termo)) {
+          produto.style.display = "flex";
+          encontrou = true;
+        } else {
+          produto.style.display = "none";
+        }
       });
-    });
+
+      quemSomos.style.display = "none";
+      outrosEbooks.style.display = "block";
+
+      erro.style.display = encontrou ? "none" : "block";
+    }
+
+    searchInput.addEventListener("input", filtrarProdutos);
   </script>
 </body>
 </html>
