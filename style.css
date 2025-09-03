@@ -12,9 +12,13 @@ body {
   line-height: 1.6;
 }
 
+/* Barra de Pesquisa */
 .search-container {
   text-align: center;
   margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar {
@@ -27,15 +31,28 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-#quem-somos, #duvidas, #avaliacoes, #ajuda {
-  max-width: 900px;
-  margin: 40px auto;
+/* Quem Somos */
+#quem-somos {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: #444;
   text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#quem-somos h2, .outros-ebooks h2, #duvidas h2, #avaliacoes h2, #ajuda h2 {
+#quem-somos h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #1a237e;
+}
+
+/* Produtos */
+.outros-ebooks h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 30px 0;
   color: #1a237e;
 }
 
@@ -43,18 +60,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
   gap: 20px;
   background-color: #fff;
   border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: all 0.2s;
-}
-
-.produto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .produto img {
@@ -64,6 +76,10 @@ body {
   object-fit: cover;
 }
 
+.produto-info {
+  flex: 1;
+}
+
 .produto-info h3 {
   font-size: 1.6rem;
   color: #2c3e50;
@@ -71,15 +87,16 @@ body {
 }
 
 .produto-info p {
+  font-size: 1.1rem;
   color: #444;
   margin-bottom: 15px;
 }
 
 .valor {
   font-weight: bold;
+  margin-bottom: 15px;
   font-size: 1.2rem;
   color: #1a237e;
-  margin-bottom: 15px;
 }
 
 button {
@@ -88,6 +105,7 @@ button {
   border-radius: 8px;
   background-color: #1a237e;
   color: white;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -99,12 +117,17 @@ button:hover {
 /* FAQ */
 .faq .pergunta {
   background-color: #fff;
+  margin-bottom: 15px;
   border-radius: 10px;
   padding: 15px 20px;
-  margin-bottom: 15px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: all 0.3s;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.faq .pergunta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .faq .pergunta h4 {
@@ -157,6 +180,16 @@ button:hover {
   margin-top: 10px;
 }
 
+/* Produto não encontrado */
+#sem-produto {
+  display: none;
+  text-align: center;
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .produto {
@@ -179,6 +212,7 @@ button:hover {
   }
 }
 
+/* Rodapé */
 footer {
   background: #1a237e;
   color: #fff;
