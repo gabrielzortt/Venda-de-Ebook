@@ -31,7 +31,7 @@
     <h2>eBook em Destaque</h2>
     
     <!-- Produto real com imagem -->
-    <div class="produto destaque">
+    <div class="produto destaque" data-nome="Como Ganhar Dinheiro com o Celular">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
@@ -47,7 +47,7 @@
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
       <!-- Produto 2 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="Empreendedorismo Digital para Iniciantes">
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Produto 3 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="Investindo para Iniciantes - Comece com R$ 100">
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Produto 4 sem imagem -->
-      <div class="produto">
+      <div class="produto" data-nome="Vendas Online - Como Criar Seu Negócio">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -137,23 +137,25 @@
 
   <!-- Scripts -->
   <script>
-    // FAQ interativo com animação
-    const perguntas = document.querySelectorAll('.pergunta');
+    // FAQ interativo
+    const perguntas = document.querySelectorAll('.faq .pergunta');
     perguntas.forEach(pergunta => {
       pergunta.addEventListener('click', () => {
         pergunta.classList.toggle('aberto');
       });
     });
 
-    // Pesquisa dinâmica
+    // Pesquisa em tempo real
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    searchInput.addEventListener("input", () => {
+    const outrosProdutos = document.querySelector(".grid-produtos");
+    function filtrarProdutos() {
       const termo = searchInput.value.toLowerCase().trim();
       let encontrou = false;
+
       produtos.forEach(produto => {
-        const texto = produto.innerText.toLowerCase();
-        if (texto.includes(termo)) {
+        const nome = produto.dataset.nome.toLowerCase();
+        if (nome.includes(termo)) {
           produto.style.display = "flex";
           encontrou = true;
         } else {
@@ -161,24 +163,43 @@
         }
       });
 
-      if (termo === "") {
+      if(termo === "") {
         produtos.forEach(produto => produto.style.display = "flex");
-      } else if (!encontrou) {
-        produtos.forEach(produto => produto.style.display = "none");
-        if (!document.querySelector(".nao-encontrado")) {
-          const div = document.createElement("div");
-          div.classList.add("nao-encontrado");
-          div.innerText = "Produto não identificado.";
-          div.style.textAlign = "center";
-          div.style.marginTop = "20px";
-          div.style.color = "#ff0000";
-          document.body.appendChild(div);
-        }
-      } else {
-        const naoEncontrado = document.querySelector(".nao-encontrado");
-        if (naoEncontrado) naoEncontrado.remove();
       }
-    });
+
+      if(!encontrou && termo !== "") {
+        outrosProdutos.innerHTML = '<p style="text-align:center; color:red;">Produto não identificado</p>';
+      } else {
+        // restaurar grid se havia sido sobrescrito
+        document.querySelector(".grid-produtos").innerHTML = `
+          <div class="produto" data-nome="Empreendedorismo Digital para Iniciantes">
+            <div class="produto-info">
+              <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
+              <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
+              <div class="valor">💰 R$ 29,90</div>
+              <button>📲 Comprar Agora</button>
+            </div>
+          </div>
+          <div class="produto" data-nome="Investindo para Iniciantes - Comece com R$ 100">
+            <div class="produto-info">
+              <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
+              <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
+              <div class="valor">💰 R$ 19,90</div>
+              <button>📲 Comprar Agora</button>
+            </div>
+          </div>
+          <div class="produto" data-nome="Vendas Online - Como Criar Seu Negócio">
+            <div class="produto-info">
+              <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
+              <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
+              <div class="valor">💰 R$ 39,90</div>
+              <button>📲 Comprar Agora</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+    searchInput.addEventListener("input", filtrarProdutos);
   </script>
 </body>
 </html>
