@@ -11,7 +11,7 @@
   <header>
     <div class="search-container">
       <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
-      <button id="voltar-inicio" style="display:none;">🏠 Voltar à Tela Inicial</button>
+      <button id="voltar-inicio" style="display:none;">🔙 Voltar à página inicial</button>
     </div>
   </header>
 
@@ -32,7 +32,7 @@
     <h2>eBook em Destaque</h2>
     
     <!-- Produto real com imagem -->
-    <div class="produto destaque" data-nome="Como Ganhar Dinheiro com o Celular">
+    <div class="produto destaque" data-nome="como ganhar dinheiro com o celular">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
@@ -48,7 +48,7 @@
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
       <!-- Produto 2 sem imagem -->
-      <div class="produto" data-nome="Empreendedorismo Digital para Iniciantes">
+      <div class="produto" data-nome="empreendedorismo digital para iniciantes">
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -58,7 +58,7 @@
       </div>
 
       <!-- Produto 3 sem imagem -->
-      <div class="produto" data-nome="Investindo para Iniciantes">
+      <div class="produto" data-nome="investindo para iniciantes">
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -68,7 +68,7 @@
       </div>
 
       <!-- Produto 4 sem imagem -->
-      <div class="produto" data-nome="Vendas Online - Como Criar Seu Negócio">
+      <div class="produto" data-nome="vendas online como criar seu negocio">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -77,11 +77,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Mensagem de erro quando produto não encontrado -->
-    <p id="erro" style="display:none; text-align:center; color:red; font-weight:bold; margin-top:20px;">
-      Produto não identificado
-    </p>
   </section>
 
   <!-- Seção de Dúvidas Frequentes -->
@@ -152,47 +147,42 @@
       });
     });
 
-    // Pesquisa funcional
+    // Pesquisa em tempo real com destaque
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    const quemSomos = document.getElementById("quem-somos");
-    const outrosEbooks = document.querySelector(".outros-ebooks");
-    const erro = document.getElementById("erro");
-    const btnVoltar = document.getElementById("voltar-inicio");
+    const voltarBtn = document.getElementById("voltar-inicio");
 
     function filtrarProdutos() {
       const termo = searchInput.value.toLowerCase().trim();
-      let encontrou = false;
 
       if (termo === "") {
-        quemSomos.style.display = "block";
-        outrosEbooks.style.display = "block";
-        erro.style.display = "none";
-        produtos.forEach(produto => produto.style.display = "flex");
-        btnVoltar.style.display = "none";
-        return;
-      }
+        produtos.forEach(p => p.style.display = "flex");
+        voltarBtn.style.display = "none";
+      } else {
+        let encontrou = false;
+        produtos.forEach(p => {
+          const nome = p.getAttribute("data-nome").toLowerCase();
+          if (nome.includes(termo)) {
+            p.style.display = "flex";
+            encontrou = true;
+          } else {
+            p.style.display = "none";
+          }
+        });
 
-      produtos.forEach(produto => {
-        const nome = produto.getAttribute("data-nome").toLowerCase();
-        if (nome.includes(termo)) {
-          produto.style.display = "flex";
-          encontrou = true;
-        } else {
-          produto.style.display = "none";
+        if (!encontrou) {
+          alert("Produto não identificado!");
         }
-      });
-
-      quemSomos.style.display = "none";
-      outrosEbooks.style.display = "block";
-      erro.style.display = encontrou ? "none" : "block";
-      btnVoltar.style.display = "block";
+        voltarBtn.style.display = "block";
+      }
     }
 
     searchInput.addEventListener("input", filtrarProdutos);
-    btnVoltar.addEventListener("click", () => {
+
+    voltarBtn.addEventListener("click", () => {
+      produtos.forEach(p => p.style.display = "flex");
       searchInput.value = "";
-      filtrarProdutos();
+      voltarBtn.style.display = "none";
     });
   </script>
 </body>
