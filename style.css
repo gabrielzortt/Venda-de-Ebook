@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
   font-family: Arial, sans-serif;
   background-color: #f6f6f6;
@@ -30,7 +31,7 @@ body {
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Seção Quem Somos */
@@ -50,36 +51,37 @@ body {
   color: #1a237e;
 }
 
-/* Seção Produtos */
+/* Seção de Produtos */
+.outros-ebooks {
+  margin-top: 40px;
+}
+
 .outros-ebooks h2 {
   font-size: 2rem;
   text-align: center;
-  margin: 30px 0;
+  margin-bottom: 30px;
   color: #1a237e;
 }
 
-.produto.destaque {
+/* Grid de produtos */
+.grid-produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilo do produto */
+.produto {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #ddd;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.produto.destaque:hover {
-  transform: scale(1.02);
-}
-
-.produto.destaque img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
+  padding: 20px 0;
+  gap: 20px;
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .produto-info {
@@ -105,7 +107,7 @@ body {
   color: #1a237e;
 }
 
-button {
+button, .btn-comprar {
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -116,115 +118,115 @@ button {
   transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
+button:hover, .btn-comprar:hover {
   background-color: #283593;
   transform: scale(1.05);
 }
 
+/* Produto verdadeiro destaque */
+.produto.destaque {
+  border: 2px solid #1a237e;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: scale(1.03);
+}
+
+.produto.destaque img {
+  width: 180px;
+  height: 270px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 /* Produtos sem imagem */
-.grid-produtos .produto {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.produto:not(.destaque) {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.produto:not(.destaque) .produto-info h3 {
+  font-size: 1.4rem;
+}
+
+.produto:not(.destaque) .produto-info p {
+  font-size: 1rem;
 }
 
 /* FAQ */
-#duvidas, #avaliacoes, #ajuda {
+.faq {
   max-width: 900px;
-  margin: 50px auto;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-#duvidas h2, #avaliacoes h2, #ajuda h2 {
-  text-align: center;
-  color: #1a237e;
-  margin-bottom: 20px;
-}
-
-.faq .pergunta {
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 12px;
+.pergunta {
   margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.faq .pergunta:hover {
-  transform: translateY(-2px);
+.pergunta h4 {
+  color: #1a237e;
 }
 
-.faq .pergunta h4 {
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.faq .pergunta p {
+.pergunta p {
   display: none;
-  margin-top: 5px;
+  margin-top: 10px;
   color: #444;
 }
 
 /* Avaliações */
-.avaliacoes-geral .avaliacao {
-  background-color: #fff;
-  padding: 15px 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+.avaliacoes-geral {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.avaliacoes-geral .avaliacao:hover {
-  transform: translateY(-2px);
+.avaliacao {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.avaliacoes-geral .avaliacao h4 {
-  margin-bottom: 8px;
-  color: #2c3e50;
+.avaliacao h4 {
+  color: #1a237e;
+  margin-bottom: 5px;
 }
 
-.avaliacoes-geral .avaliacao span {
-  color: #ffb400;
-  font-size: 1.1rem;
+.avaliacao span {
+  color: #f1c40f;
 }
 
 /* Ajuda */
 #ajuda {
   text-align: center;
+  margin-top: 40px;
 }
 
-#ajuda p.telefone {
-  font-size: 1.4rem;
+#ajuda .telefone {
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #2c3e50;
-  margin-top: 10px;
+  color: #1a237e;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .produto.destaque {
+  .produto {
     flex-direction: column;
     text-align: center;
   }
 
   .produto.destaque img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    width: 150px;
+    height: 225px;
   }
 
-  .grid-produtos .produto, .faq .pergunta, .avaliacoes-geral .avaliacao {
-    text-align: center;
-  }
-
-  button {
+  button, .btn-comprar {
     width: 100%;
   }
 }
