@@ -82,19 +82,19 @@
   <section id="duvidas">
     <h2>Dúvidas Frequentes</h2>
     <div class="faq">
-      <div class="pergunta card">
+      <div class="pergunta">
         <h4>❓ Como faço para acessar o eBook após a compra?</h4>
         <p>Após a confirmação do pagamento, você receberá um link para download em seu e-mail.</p>
       </div>
-      <div class="pergunta card">
+      <div class="pergunta">
         <h4>❓ Posso ler os eBooks no celular e no computador?</h4>
         <p>Sim! Nossos eBooks são compatíveis com todos os dispositivos, incluindo smartphones, tablets e computadores.</p>
       </div>
-      <div class="pergunta card">
+      <div class="pergunta">
         <h4>❓ Existe garantia de satisfação?</h4>
         <p>Sim, oferecemos 7 dias para solicitar reembolso caso não esteja satisfeito com o conteúdo.</p>
       </div>
-      <div class="pergunta card">
+      <div class="pergunta">
         <h4>❓ Os métodos ensinados realmente funcionam?</h4>
         <p>Sim! Todos os métodos são testados e comprovados por nossos especialistas no mercado digital.</p>
       </div>
@@ -105,17 +105,17 @@
   <section id="avaliacoes">
     <h2>Avaliações dos Usuários</h2>
     <div class="avaliacoes-geral">
-      <div class="avaliacao card">
+      <div class="avaliacao">
         <h4>Lucas M.</h4>
         <p>Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!</p>
         <span>⭐⭐⭐⭐⭐</span>
       </div>
-      <div class="avaliacao card">
+      <div class="avaliacao">
         <h4>Julia T.</h4>
         <p>O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam.</p>
         <span>⭐⭐⭐⭐⭐</span>
       </div>
-      <div class="avaliacao card">
+      <div class="avaliacao">
         <h4>Carlos P.</h4>
         <p>Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado.</p>
         <span>⭐⭐⭐⭐⭐</span>
@@ -137,31 +137,19 @@
 
   <!-- Scripts -->
   <script>
-    // FAQ interativo
-    const perguntas = document.querySelectorAll('.faq .pergunta');
+    // FAQ interativo com animação
+    const perguntas = document.querySelectorAll('.pergunta');
     perguntas.forEach(pergunta => {
       pergunta.addEventListener('click', () => {
-        pergunta.classList.toggle("ativo");
+        pergunta.classList.toggle('aberto');
       });
     });
 
-    // Pesquisa em tempo real
+    // Pesquisa dinâmica
     const searchInput = document.querySelector(".search-bar");
-    const produtos = document.querySelectorAll(".produto, .destaque");
-    const outrasSecoes = document.querySelectorAll("section:not(.outros-ebooks)");
-    const outrosTitulos = document.querySelectorAll(".outros-ebooks h2");
-
-    function filtrarProdutos() {
-      const termo = searchInput.value.toLowerCase();
-
-      if (termo === "") {
-        // Volta à tela inicial
-        produtos.forEach(p => p.style.display = "flex");
-        outrasSecoes.forEach(s => s.style.display = "block");
-        outrosTitulos.forEach(t => t.style.display = "block");
-        return;
-      }
-
+    const produtos = document.querySelectorAll(".produto");
+    searchInput.addEventListener("input", () => {
+      const termo = searchInput.value.toLowerCase().trim();
       let encontrou = false;
       produtos.forEach(produto => {
         const texto = produto.innerText.toLowerCase();
@@ -173,15 +161,24 @@
         }
       });
 
-      outrasSecoes.forEach(s => s.style.display = "none");
-      outrosTitulos.forEach(t => t.style.display = "none");
-
-      if (!encontrou) {
-        document.querySelector(".outros-ebooks").innerHTML = "<h2>Produto não identificado ❌</h2>";
+      if (termo === "") {
+        produtos.forEach(produto => produto.style.display = "flex");
+      } else if (!encontrou) {
+        produtos.forEach(produto => produto.style.display = "none");
+        if (!document.querySelector(".nao-encontrado")) {
+          const div = document.createElement("div");
+          div.classList.add("nao-encontrado");
+          div.innerText = "Produto não identificado.";
+          div.style.textAlign = "center";
+          div.style.marginTop = "20px";
+          div.style.color = "#ff0000";
+          document.body.appendChild(div);
+        }
+      } else {
+        const naoEncontrado = document.querySelector(".nao-encontrado");
+        if (naoEncontrado) naoEncontrado.remove();
       }
-    }
-
-    searchInput.addEventListener("input", filtrarProdutos);
+    });
   </script>
 </body>
 </html>
