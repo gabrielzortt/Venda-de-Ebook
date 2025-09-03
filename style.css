@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -16,10 +15,6 @@ body {
 .search-container {
   text-align: center;
   margin: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
 }
 
 .search-bar {
@@ -29,29 +24,18 @@ body {
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-#quem-somos {
-  margin-top: 40px;
-  font-size: 1.1rem;
-  color: #444;
-  text-align: center;
+#quem-somos, #duvidas, #avaliacoes, #ajuda {
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 40px auto;
+  text-align: center;
 }
 
-#quem-somos h2 {
+#quem-somos h2, .outros-ebooks h2, #duvidas h2, #avaliacoes h2, #ajuda h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #1a237e;
-}
-
-.outros-ebooks h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
   color: #1a237e;
 }
 
@@ -59,14 +43,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
   gap: 20px;
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
 }
 
 .produto:hover {
@@ -88,16 +71,15 @@ body {
 }
 
 .produto-info p {
-  font-size: 1.1rem;
   color: #444;
   margin-bottom: 15px;
 }
 
 .valor {
   font-weight: bold;
-  margin-bottom: 15px;
   font-size: 1.2rem;
   color: #1a237e;
+  margin-bottom: 15px;
 }
 
 button {
@@ -106,7 +88,6 @@ button {
   border-radius: 8px;
   background-color: #1a237e;
   color: white;
-  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -115,19 +96,18 @@ button:hover {
   background-color: #283593;
 }
 
-/* FAQ Cards */
+/* FAQ */
 .faq .pergunta {
   background-color: #fff;
   border-radius: 10px;
-  margin-bottom: 15px;
   padding: 15px 20px;
+  margin-bottom: 15px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   transition: all 0.3s;
 }
 
 .faq .pergunta h4 {
-  font-size: 1.2rem;
   color: #1a237e;
 }
 
@@ -135,14 +115,13 @@ button:hover {
   display: none;
   margin-top: 10px;
   color: #444;
-  line-height: 1.4;
 }
 
 .faq .pergunta.aberto p {
   display: block;
 }
 
-/* Avaliações Cards */
+/* Avaliações */
 .avaliacoes-geral {
   display: flex;
   flex-direction: column;
@@ -172,14 +151,10 @@ button:hover {
 }
 
 /* Ajuda */
-#ajuda {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.telefone {
+#ajuda .telefone {
   font-weight: bold;
   font-size: 1.2rem;
+  margin-top: 10px;
 }
 
 /* Responsividade */
@@ -202,13 +177,8 @@ button:hover {
   button {
     width: 100%;
   }
-
-  .avaliacoes-geral {
-    gap: 10px;
-  }
 }
 
-/* Rodapé */
 footer {
   background: #1a237e;
   color: #fff;
