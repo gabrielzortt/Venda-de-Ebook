@@ -18,7 +18,11 @@
   <section id="quem-somos">
     <h2>Quem Somos</h2>
     <p>
-      Na <strong>Creators of the Future</strong>, nossa missão é ajudar jovens e microempreendedores a conquistarem a liberdade financeira através de eBooks e cursos digitais. 🚀
+      Na <strong>Creators of the Future</strong>, acreditamos que o conhecimento é a chave para a liberdade financeira e para a realização pessoal. Nossa missão é transformar vidas, oferecendo conteúdos práticos e objetivos que capacitam jovens e microempreendedores a conquistar seus sonhos no mundo digital.  
+      <br><br>
+      Com anos de experiência no mercado digital, reunimos as melhores estratégias, técnicas e ferramentas em nossos eBooks, garantindo que você aprenda de forma rápida, eficiente e segura. Aqui, você não encontra teorias vazias, mas métodos testados que realmente funcionam.  
+      <br><br>
+      Junte-se a nós e descubra como transformar ideias em resultados, desafios em oportunidades e potencial em sucesso. Estamos aqui para guiá-lo em cada passo da sua jornada empreendedora, para que você possa construir um futuro sólido, próspero e cheio de realizações!
     </p>
   </section>
 
@@ -87,9 +91,11 @@
         const texto = produto.innerText.toLowerCase();
         if (texto.includes(termo)) {
           produto.style.display = "flex";
+          produto.style.opacity = "1";
           count++;
         } else {
           produto.style.display = "none";
+          produto.style.opacity = "0";
         }
       });
     }
