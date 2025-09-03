@@ -118,37 +118,42 @@
         <p>Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado.</p>
         <span>⭐⭐⭐⭐⭐</span>
       </div>
-      <div class="avaliacao">
-        <h4>Mariana S.</h4>
-        <p>Recomendo para quem quer começar a empreender digitalmente. Vale cada centavo!</p>
-        <span>⭐⭐⭐⭐⭐</span>
-      </div>
     </div>
   </section>
 
+  <!-- Seção de Ajuda -->
+  <section id="ajuda">
+    <h2>Precisa de Ajuda?</h2>
+    <p>Se tiver qualquer dúvida ou problema, entre em contato conosco pelo telefone:</p>
+    <p class="telefone">📞 (92) 99427-4276</p>
+  </section>
+
+  <!-- Rodapé -->
   <footer>
     <p>&copy; 2025 Creators of the Future - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script de pesquisa em tempo real -->
+  <!-- Scripts -->
   <script>
+    // FAQ interativo
+    const perguntas = document.querySelectorAll('.faq .pergunta');
+    perguntas.forEach(pergunta => {
+      pergunta.addEventListener('click', () => {
+        const resposta = pergunta.querySelector('p');
+        resposta.style.display = resposta.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Pesquisa em tempo real
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-
     function filtrarProdutos() {
       const termo = searchInput.value.toLowerCase();
       produtos.forEach(produto => {
         const texto = produto.innerText.toLowerCase();
-        if (texto.includes(termo)) {
-          produto.style.display = "flex";
-          produto.style.opacity = "1";
-        } else {
-          produto.style.display = "none";
-          produto.style.opacity = "0";
-        }
+        produto.style.display = texto.includes(termo) ? "flex" : "none";
       });
     }
-
     searchInput.addEventListener("input", filtrarProdutos);
   </script>
 </body>
