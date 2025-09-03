@@ -3,17 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
+/* Corpo da página */
 body {
+  font-family: Arial, sans-serif;
   background-color: #f6f6f6;
   color: #333;
   padding: 20px;
   line-height: 1.6;
 }
 
-/* Barra de pesquisa */
+/* Barra de Pesquisa */
 .search-container {
   text-align: center;
   margin: 40px 0;
@@ -30,15 +31,10 @@ body {
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar:focus {
-  outline: none;
-  border-color: #1a237e;
-}
-
-/* Quem Somos */
+/* Seção Quem Somos */
 #quem-somos {
   margin-top: 40px;
   font-size: 1.1rem;
@@ -61,9 +57,9 @@ body {
 }
 
 .outros-ebooks h2 {
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 30px;
-  font-size: 2rem;
   color: #1a237e;
 }
 
@@ -75,6 +71,10 @@ body {
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
   gap: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .produto img {
@@ -175,44 +175,36 @@ button:hover {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  padding: 20px;
+  padding: 15px 20px;
   max-width: 300px;
   width: 100%;
-  border: 1px solid #eaeaea;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.avaliacao:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
 }
 
 .avaliacao h4 {
   color: #1a237e;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .avaliacao p {
   color: #444;
-  font-style: italic;
   margin-bottom: 10px;
 }
 
 .avaliacao span {
   color: #ffb400;
+  font-size: 1.2rem;
 }
 
 /* Ajuda */
 #ajuda {
-  margin-top: 40px;
   text-align: center;
+  margin-top: 40px;
 }
 
-#ajuda .telefone {
+.telefone {
   font-weight: bold;
+  font-size: 1.3rem;
   color: #1a237e;
-  font-size: 1.2rem;
-  margin-top: 10px;
 }
 
 /* Rodapé */
@@ -233,8 +225,8 @@ footer {
   }
 
   .produto img {
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: 180px;
   }
 
   .produto-info {
@@ -242,11 +234,16 @@ footer {
     margin-top: 10px;
   }
 
+  .avaliacoes-geral {
+    flex-direction: column;
+    align-items: center;
+  }
+
   button {
     width: 100%;
   }
 
-  .pergunta, .avaliacao {
-    max-width: 95%;
+  .faq .pergunta {
+    max-width: 100%;
   }
 }
