@@ -85,8 +85,17 @@ body {
   align-items: center;
   margin-bottom: 30px;
   border-bottom: 1px solid #ddd;
-  padding: 20px 0;
+  padding: 20px 20px;
   gap: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.produto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .produto img {
@@ -139,6 +148,81 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+/* FAQ */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.faq .pergunta {
+  background-color: #fff;
+  border-left: 5px solid #1a237e;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.faq .pergunta:hover {
+  background-color: #f0f0ff;
+  transform: translateY(-2px);
+}
+
+.faq .pergunta p {
+  display: none;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Avaliações */
+.avaliacoes-geral {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.avaliacao {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.avaliacao h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #1a237e;
+}
+
+.avaliacao p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.avaliacao span {
+  font-size: 1.2rem;
+  color: gold;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+/* Seção de Ajuda */
+#ajuda {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#ajuda .telefone {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1a237e;
 }
 
 /* Responsividade */
