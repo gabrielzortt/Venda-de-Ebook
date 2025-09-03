@@ -1,146 +1,315 @@
-/* Reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-/* Cabeçalho */
-header {
+/* Corpo da página */
+body {
+  background-color: #f6f6f6;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Barra de pesquisa */
+.search-container {
   text-align: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #0077ff, #00c6ff);
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #1a237e;
+}
+
+.search-button {
+  padding: 12px 20px;
+  background-color: #1a237e;
   color: white;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+.search-button:hover {
+  background-color: #283593;
 }
 
-/* Avaliações */
-.avaliacoes {
-  padding: 3rem 1rem;
+/* Seção Quem Somos */
+#quem-somos {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: #444;
   text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.avaliacoes h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #222;
+#quem-somos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1a237e;
 }
 
-.cards {
+/* Produtos */
+.outros-ebooks {
+  margin-top: 40px;
+}
+
+.outros-ebooks h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a237e;
+}
+
+.produto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.produto img {
+  width: 150px;
+  height: 225px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-info h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.produto-info p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.valor {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #1a237e;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a237e;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #283593;
+}
+
+/* Grid para outros ebooks sem imagem */
+.grid-produtos {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 20px;
   justify-content: center;
 }
 
-.card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 18px;
-  max-width: 280px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+/* Avaliações */
+#avaliacoes {
+  margin-top: 50px;
+}
+
+#avaliacoes h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a237e;
+  font-size: 2rem;
+}
+
+.avaliacoes-geral {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.avaliacao {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   border: 1px solid #eaeaea;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.avaliacao:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+.avaliacao h4 {
+  color: #1a237e;
+  margin-bottom: 10px;
 }
 
-.card p {
+.avaliacao p {
   font-style: italic;
-  margin-bottom: 0.8rem;
   color: #444;
-  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
-.card span {
-  font-weight: bold;
-  color: #0077ff;
+.avaliacao span {
+  color: #ffb400;
 }
 
 /* FAQ */
-.faq {
-  padding: 3rem 1rem;
-  background: #f7f9fc;
+#duvidas {
+  margin-top: 50px;
 }
 
-.faq h2 {
+#duvidas h2 {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #222;
+  margin-bottom: 30px;
+  color: #1a237e;
+  font-size: 2rem;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .pergunta {
   background: white;
-  margin: 1rem auto;
-  padding: 1.2rem 1.5rem;
-  border-radius: 14px;
-  max-width: 650px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   border: 1px solid #eaeaea;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  position: relative;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .pergunta:hover {
   background: #f0f6ff;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* Título da FAQ com ícone fake (+/-) */
-.pergunta h3 {
-  font-size: 1.1rem;
-  color: #0077ff;
+.pergunta h4 {
+  color: #1a237e;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  font-size: 1.1rem;
 }
 
-.pergunta h3::after {
+.pergunta h4::after {
   content: "+";
-  font-size: 1.2rem;
   font-weight: bold;
-  color: #0077ff;
-  transition: transform 0.3s ease;
+  font-size: 1.2rem;
 }
 
-.pergunta.ativo h3::after {
+.pergunta.ativo h4::after {
   content: "-";
-  transform: rotate(180deg);
 }
 
-/* Conteúdo da resposta */
 .pergunta p {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
+  margin-top: 10px;
   transition: max-height 0.4s ease, opacity 0.4s ease;
-  margin-top: 0.5rem;
-  color: #555;
+  color: #444;
   line-height: 1.5rem;
 }
 
 .pergunta.ativo p {
-  max-height: 300px;
+  max-height: 500px;
   opacity: 1;
+}
+
+/* Seção de ajuda */
+#ajuda {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#ajuda .telefone {
+  font-size: 1.3rem;
+  color: #1a237e;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .produto img {
+    width: 120px;
+    height: 180px;
+  }
+
+  .produto-info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .avaliacoes-geral, .grid-produtos, .faq {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Rodapé */
+footer {
+  background: #1a237e;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  border-radius: 8px;
 }
