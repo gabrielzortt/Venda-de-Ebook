@@ -1,195 +1,146 @@
-/* Reset básico */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
-/* Corpo da página */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f6f6f6;
-  color: #333;
-  padding: 20px;
-  line-height: 1.6;
-}
-
-/* Barra de Pesquisa */
-.search-container {
+/* Cabeçalho */
+header {
   text-align: center;
-  margin: 40px 0;
-}
-
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Seção Quem Somos */
-#quem-somos {
-  margin-top: 40px;
-  font-size: 1.1rem;
-  color: #444;
-}
-
-#quem-somos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #1a237e;
-}
-
-/* Seção de Produtos */
-.outros-ebooks {
-  margin-top: 40px;
-}
-
-.outros-ebooks h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #1a237e;
-}
-
-/* Produto */
-.produto {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-  padding: 20px 0;
-}
-
-.produto img {
-  width: 150px;
-  height: 225px;
-  border-radius: 10px;
-}
-
-.produto-info {
-  flex: 1;
-  margin-left: 20px;
-}
-
-.produto-info h3 {
-  font-size: 1.6rem;
-  color: #2c3e50;
-}
-
-.produto-info p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-.valor {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #1a237e;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0077ff, #00c6ff);
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-button:hover {
-  background-color: #283593;
-}
-
-/* ====== CARDS ====== */
-.card {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* FAQ */
-#duvidas h2 {
-  text-align: center;
-  margin: 40px 0 20px;
-  color: #1a237e;
-}
-
-.pergunta h4 {
-  font-size: 1.2rem;
-  color: #1a237e;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.pergunta p {
-  display: none;
-  font-size: 1rem;
-  color: #444;
-}
-
-.pergunta.ativo p {
-  display: block;
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Avaliações */
-#avaliacoes h2 {
+.avaliacoes {
+  padding: 3rem 1rem;
   text-align: center;
-  margin: 40px 0 20px;
-  color: #1a237e;
 }
 
-.avaliacao h4 {
-  color: #2c3e50;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+.avaliacoes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-.avaliacao span {
-  color: #ff9800;
-  font-size: 1.2rem;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
-/* Ajuda */
-#ajuda {
-  text-align: center;
-  margin-top: 50px;
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 18px;
+  max-width: 280px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid #eaeaea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-#ajuda h2 {
-  color: #1a237e;
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.telefone {
-  font-size: 1.3rem;
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card p {
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.card span {
   font-weight: bold;
-  color: #2c3e50;
+  color: #0077ff;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .produto {
-    flex-direction: column;
-    text-align: center;
-  }
+/* FAQ */
+.faq {
+  padding: 3rem 1rem;
+  background: #f7f9fc;
+}
 
-  .produto img {
-    margin-bottom: 15px;
-  }
+.faq h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
 
-  .produto-info {
-    margin-left: 0;
-  }
+.pergunta {
+  background: white;
+  margin: 1rem auto;
+  padding: 1.2rem 1.5rem;
+  border-radius: 14px;
+  max-width: 650px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.pergunta:hover {
+  background: #f0f6ff;
+  transform: translateY(-3px);
+}
+
+/* Título da FAQ com ícone fake (+/-) */
+.pergunta h3 {
+  font-size: 1.1rem;
+  color: #0077ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.pergunta h3::after {
+  content: "+";
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0077ff;
+  transition: transform 0.3s ease;
+}
+
+.pergunta.ativo h3::after {
+  content: "-";
+  transform: rotate(180deg);
+}
+
+/* Conteúdo da resposta */
+.pergunta p {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  margin-top: 0.5rem;
+  color: #555;
+  line-height: 1.5rem;
+}
+
+.pergunta.ativo p {
+  max-height: 300px;
+  opacity: 1;
 }
