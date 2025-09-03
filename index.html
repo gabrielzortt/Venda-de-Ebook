@@ -11,34 +11,40 @@
   <header>
     <div class="search-container">
       <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
-      <button id="voltar-inicio" style="display:none;">🔙 Voltar à página inicial</button>
+      <button id="voltar-inicio" style="display:none;">🏠 Voltar à Tela Inicial</button>
     </div>
   </header>
 
-  <!-- Quem Somos -->
+  <!-- Seção Quem Somos -->
   <section id="quem-somos">
     <h2>Quem Somos</h2>
     <p>
-      Na <strong>Creators of the Future</strong>, acreditamos que o conhecimento é a chave para a liberdade financeira e para a realização pessoal...
+      Na <strong>Creators of the Future</strong>, acreditamos que o conhecimento é a chave para a liberdade financeira e para a realização pessoal. Nossa missão é transformar vidas, oferecendo conteúdos práticos e objetivos que capacitam jovens e microempreendedores a conquistar seus sonhos no mundo digital.  
+      <br><br>
+      Com anos de experiência no mercado digital, reunimos as melhores estratégias, técnicas e ferramentas em nossos eBooks, garantindo que você aprenda de forma rápida, eficiente e segura. Aqui, você não encontra teorias vazias, mas métodos testados que realmente funcionam.  
+      <br><br>
+      Junte-se a nós e descubra como transformar ideias em resultados, desafios em oportunidades e potencial em sucesso. Estamos aqui para guiá-lo em cada passo da sua jornada empreendedora, para que você possa construir um futuro sólido, próspero e cheio de realizações!
     </p>
   </section>
 
-  <!-- Produto principal -->
+  <!-- Seção de Produtos -->
   <section class="outros-ebooks">
     <h2>eBook em Destaque</h2>
+    
+    <!-- Produto real com imagem -->
     <div class="produto destaque" data-nome="como ganhar dinheiro com o celular">
-      <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" alt="Como Ganhar Dinheiro com o Celular" />
+      <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
+           alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
         <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
         <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
         <div class="valor">💰 R$ 19,90</div>
-        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">📲 Comprar Agora</button>
+        <button onclick="window.location.href='https://pay.kiwify.com.br/QHHVus7';">
+          📲 Comprar Agora
+        </button>
       </div>
     </div>
-  </section>
 
-  <!-- Outros eBooks -->
-  <section class="outros-ebooks">
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
       <div class="produto" data-nome="empreendedorismo digital para iniciantes">
@@ -59,7 +65,7 @@
         </div>
       </div>
 
-      <div class="produto" data-nome="vendas online como criar seu negocio">
+      <div class="produto" data-nome="vendas online">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -70,23 +76,28 @@
     </div>
   </section>
 
+  <!-- Erro de pesquisa -->
+  <section id="erro-pesquisa" style="display:none; text-align:center; margin-top:20px;">
+    <h3>⚠️ Produto não identificado</h3>
+  </section>
+
   <!-- FAQ -->
   <section id="duvidas">
     <h2>Dúvidas Frequentes</h2>
-    <div class="faq">
-      <div class="card">
+    <div class="faq-cards">
+      <div class="card-faq">
         <h4>❓ Como faço para acessar o eBook após a compra?</h4>
         <p>Após a confirmação do pagamento, você receberá um link para download em seu e-mail.</p>
       </div>
-      <div class="card">
+      <div class="card-faq">
         <h4>❓ Posso ler os eBooks no celular e no computador?</h4>
         <p>Sim! Nossos eBooks são compatíveis com todos os dispositivos.</p>
       </div>
-      <div class="card">
+      <div class="card-faq">
         <h4>❓ Existe garantia de satisfação?</h4>
         <p>Sim, oferecemos 7 dias para solicitar reembolso caso não esteja satisfeito.</p>
       </div>
-      <div class="card">
+      <div class="card-faq">
         <h4>❓ Os métodos ensinados realmente funcionam?</h4>
         <p>Sim! Todos os métodos são testados e comprovados por especialistas.</p>
       </div>
@@ -96,29 +107,26 @@
   <!-- Avaliações -->
   <section id="avaliacoes">
     <h2>Avaliações dos Usuários</h2>
-    <div class="avaliacoes-geral">
-      <div class="card">
-        <h4>Lucas M.</h4>
-        <p>Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!</p>
-        <span>⭐⭐⭐⭐⭐</span>
+    <div class="avaliacoes-cards">
+      <div class="card-avaliacao">
+        <h4>⭐ Lucas M.</h4>
+        <p>"Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!"</p>
       </div>
-      <div class="card">
-        <h4>Julia T.</h4>
-        <p>O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam.</p>
-        <span>⭐⭐⭐⭐⭐</span>
+      <div class="card-avaliacao">
+        <h4>⭐ Julia T.</h4>
+        <p>"O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam."</p>
       </div>
-      <div class="card">
-        <h4>Carlos P.</h4>
-        <p>Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado.</p>
-        <span>⭐⭐⭐⭐⭐</span>
+      <div class="card-avaliacao">
+        <h4>⭐ Carlos P.</h4>
+        <p>"Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado."</p>
       </div>
     </div>
   </section>
 
-  <!-- Ajuda -->
+  <!-- Seção de Ajuda -->
   <section id="ajuda">
     <h2>Precisa de Ajuda?</h2>
-    <p>Entre em contato pelo telefone:</p>
+    <p>Se tiver qualquer dúvida ou problema, entre em contato conosco pelo telefone:</p>
     <p class="telefone">📞 (92) 99427-4276</p>
   </section>
 
@@ -129,36 +137,47 @@
 
   <!-- Scripts -->
   <script>
-    // Pesquisa em tempo real
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    const voltarBtn = document.getElementById("voltar-inicio");
+    const quemSomos = document.getElementById("quem-somos");
+    const outrosEbooks = document.querySelector(".outros-ebooks");
+    const erro = document.getElementById("erro-pesquisa");
+    const btnVoltar = document.getElementById("voltar-inicio");
 
     function filtrarProdutos() {
       const termo = searchInput.value.toLowerCase().trim();
+      let encontrou = false;
+
       if (termo === "") {
-        produtos.forEach(p => p.style.display = "flex");
-        voltarBtn.style.display = "none";
-      } else {
-        let encontrou = false;
-        produtos.forEach(p => {
-          const nome = p.getAttribute("data-nome").toLowerCase();
-          if (nome.includes(termo)) {
-            p.style.display = "flex";
-            encontrou = true;
-          } else {
-            p.style.display = "none";
-          }
-        });
-        if (!encontrou) alert("Produto não identificado!");
-        voltarBtn.style.display = "block";
+        quemSomos.style.display = "block";
+        outrosEbooks.style.display = "block";
+        erro.style.display = "none";
+        produtos.forEach(produto => produto.style.display = "flex");
+        btnVoltar.style.display = "none";
+        return;
       }
+
+      produtos.forEach(produto => {
+        const nome = produto.getAttribute("data-nome").toLowerCase();
+        if (nome.includes(termo)) {
+          produto.style.display = "flex";
+          encontrou = true;
+        } else {
+          produto.style.display = "none";
+        }
+      });
+
+      quemSomos.style.display = "none";
+      outrosEbooks.style.display = "block";
+      erro.style.display = encontrou ? "none" : "block";
+      btnVoltar.style.display = "block";
     }
+
     searchInput.addEventListener("input", filtrarProdutos);
-    voltarBtn.addEventListener("click", () => {
-      produtos.forEach(p => p.style.display = "flex");
+
+    btnVoltar.addEventListener("click", () => {
       searchInput.value = "";
-      voltarBtn.style.display = "none";
+      filtrarProdutos();
     });
   </script>
 </body>
