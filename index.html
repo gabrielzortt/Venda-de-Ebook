@@ -32,7 +32,8 @@
     
     <!-- Produto real com imagem -->
     <div class="produto destaque">
-      <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" alt="Como Ganhar Dinheiro com o Celular" />
+      <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
+           alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
         <h3>📱 Como Ganhar Dinheiro com o Celular</h3>
         <p>Aprenda métodos práticos e testados para começar a ganhar dinheiro com seu celular ainda hoje!</p>
@@ -75,6 +76,56 @@
     </div>
   </section>
 
+  <!-- Seção de Dúvidas Frequentes -->
+  <section id="duvidas">
+    <h2>Dúvidas Frequentes</h2>
+    <div class="faq">
+      <div class="pergunta">
+        <h4>❓ Como faço para acessar o eBook após a compra?</h4>
+        <p>Após a confirmação do pagamento, você receberá um link para download em seu e-mail.</p>
+      </div>
+      <div class="pergunta">
+        <h4>❓ Posso ler os eBooks no celular e no computador?</h4>
+        <p>Sim! Nossos eBooks são compatíveis com todos os dispositivos, incluindo smartphones, tablets e computadores.</p>
+      </div>
+      <div class="pergunta">
+        <h4>❓ Existe garantia de satisfação?</h4>
+        <p>Sim, oferecemos 7 dias para solicitar reembolso caso não esteja satisfeito com o conteúdo.</p>
+      </div>
+      <div class="pergunta">
+        <h4>❓ Os métodos ensinados realmente funcionam?</h4>
+        <p>Sim! Todos os métodos são testados e comprovados por nossos especialistas no mercado digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Avaliações -->
+  <section id="avaliacoes">
+    <h2>Avaliações dos Usuários</h2>
+    <div class="avaliacoes-geral">
+      <div class="avaliacao">
+        <h4>Lucas M.</h4>
+        <p>Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!</p>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+      <div class="avaliacao">
+        <h4>Julia T.</h4>
+        <p>O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam.</p>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+      <div class="avaliacao">
+        <h4>Carlos P.</h4>
+        <p>Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado.</p>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+      <div class="avaliacao">
+        <h4>Mariana S.</h4>
+        <p>Recomendo para quem quer começar a empreender digitalmente. Vale cada centavo!</p>
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 Creators of the Future - Todos os direitos reservados.</p>
   </footer>
@@ -86,13 +137,11 @@
 
     function filtrarProdutos() {
       const termo = searchInput.value.toLowerCase();
-      let count = 0;
       produtos.forEach(produto => {
         const texto = produto.innerText.toLowerCase();
         if (texto.includes(termo)) {
           produto.style.display = "flex";
           produto.style.opacity = "1";
-          count++;
         } else {
           produto.style.display = "none";
           produto.style.opacity = "0";
