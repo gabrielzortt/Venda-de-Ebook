@@ -1,130 +1,229 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
-  color: #333;
+  box-sizing: border-box;
 }
 
-/* Header e pesquisa */
-header {
-  background: #2c3e50;
-  padding: 15px;
-  text-align: center;
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
 }
+
+/* Barra de Pesquisa */
 .search-container {
+  text-align: center;
+  margin: 40px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
+
 .search-bar {
-  width: 60%;
-  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 #voltar-inicio {
-  background: #e74c3c;
-  color: white;
+  padding: 10px 18px;
   border: none;
-  padding: 10px 15px;
   border-radius: 8px;
+  background-color: #283593;
+  color: white;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+#voltar-inicio:hover {
+  background-color: #1a237e;
 }
 
-/* Seções */
-section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-h2 {
+/* Seção Quem Somos */
+#quem-somos {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: #444;
   text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#quem-somos h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #1a237e;
 }
 
-/* Produtos */
+/* Seção de Produtos */
+.outros-ebooks {
+  margin-top: 40px;
+}
+.outros-ebooks h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1a237e;
+}
+
+/* Estilo do produto */
 .produto {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  gap: 20px;
 }
 .produto img {
   width: 150px;
-  margin-right: 20px;
-  border-radius: 8px;
+  height: 225px;
+  border-radius: 10px;
+  object-fit: cover;
 }
-.grid-produtos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 20px;
+.produto-info {
+  flex: 1;
+}
+.produto-info h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+.produto-info p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
 }
 .valor {
   font-weight: bold;
-  margin: 10px 0;
-  color: #27ae60;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #1a237e;
 }
 button {
-  background: #2980b9;
-  color: white;
+  padding: 12px 20px;
   border: none;
-  padding: 10px 15px;
   border-radius: 8px;
+  background-color: #1a237e;
+  color: white;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 button:hover {
-  background: #1f6690;
+  background-color: #283593;
 }
 
-/* FAQ e Avaliações em Cards */
-.faq, .avaliacoes-geral {
+/* FAQ Cards */
+.faq-cards {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 20px;
 }
-.card {
-  background: white;
-  border-radius: 12px;
+.card-faq {
+  background: #ffffff;
+  border-left: 6px solid #2980b9;
   padding: 20px;
-  box-shadow: 0px 3px 8px rgba(0,0,0,0.12);
-  transition: transform 0.2s;
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.card:hover {
-  transform: translateY(-4px);
+.card-faq:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
 }
-.card h4 {
-  margin-top: 0;
-  color: #34495e;
+.card-faq h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
 }
-.card p {
-  margin: 10px 0;
+.card-faq p {
+  margin: 0;
+  color: #555;
 }
-.card span {
-  font-size: 18px;
-  color: #f39c12;
+
+/* Avaliações Cards */
+.avaliacoes-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 20px;
+}
+.card-avaliacao {
+  background: #fdfdfd;
+  border: 2px solid #f39c12;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-avaliacao:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+}
+.card-avaliacao h4 {
+  margin-bottom: 10px;
+  color: #d35400;
+}
+.card-avaliacao p {
+  margin: 0;
+  font-style: italic;
+  color: #444;
 }
 
 /* Ajuda */
 #ajuda {
   text-align: center;
-  background: #ecf0f1;
-  border-radius: 12px;
-  padding: 30px;
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+}
+#ajuda h2 {
+  color: #1a237e;
+  margin-bottom: 10px;
 }
 .telefone {
+  font-size: 1.2rem;
   font-weight: bold;
-  font-size: 18px;
+  color: #2c3e50;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produto {
+    flex-direction: column;
+    text-align: center;
+  }
+  .produto img {
+    width: 100px;
+    height: 150px;
+  }
+  .produto-info {
+    margin-top: 10px;
+  }
+  button {
+    width: 100%;
+  }
 }
 
 /* Rodapé */
 footer {
-  background: #2c3e50;
-  color: white;
+  background: #1a237e;
+  color: #fff;
   text-align: center;
   padding: 15px;
+  margin-top: 40px;
+  border-radius: 8px;
 }
