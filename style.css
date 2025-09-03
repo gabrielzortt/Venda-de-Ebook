@@ -63,13 +63,6 @@ body {
   color: #1a237e;
 }
 
-/* Grid de produtos */
-.grid-produtos {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 /* Estilo do produto */
 .produto {
   display: flex;
@@ -79,11 +72,46 @@ body {
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
   gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff;
   border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
 }
 
+/* Destaque para o eBook verdadeiro */
+.produto.destaque {
+  border: 2px solid #1a237e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.produto.destaque:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.produto img {
+  width: 150px;
+  height: 225px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Grid para produtos sem imagem */
+.grid-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grid-produtos .produto {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 250px;
+}
+
+/* Info do produto */
 .produto-info {
   flex: 1;
 }
@@ -107,7 +135,7 @@ body {
   color: #1a237e;
 }
 
-button, .btn-comprar {
+button {
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -115,66 +143,23 @@ button, .btn-comprar {
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s;
 }
 
-button:hover, .btn-comprar:hover {
+button:hover {
   background-color: #283593;
-  transform: scale(1.05);
-}
-
-/* Produto verdadeiro destaque */
-.produto.destaque {
-  border: 2px solid #1a237e;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transform: scale(1.03);
-}
-
-.produto.destaque img {
-  width: 180px;
-  height: 270px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Produtos sem imagem */
-.produto:not(.destaque) {
-  border: 1px solid #ccc;
-  background: #f9f9f9;
-}
-
-.produto:not(.destaque) .produto-info h3 {
-  font-size: 1.4rem;
-}
-
-.produto:not(.destaque) .produto-info p {
-  font-size: 1rem;
 }
 
 /* FAQ */
-.faq {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.pergunta {
+.faq .pergunta {
   margin-bottom: 15px;
-  padding: 10px;
-  background: #fff;
-  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.pergunta h4 {
-  color: #1a237e;
-}
-
-.pergunta p {
+.faq .pergunta p {
   display: none;
-  margin-top: 10px;
-  color: #444;
+  padding-left: 10px;
+  margin-top: 5px;
 }
 
 /* Avaliações */
@@ -182,35 +167,30 @@ button:hover, .btn-comprar:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.avaliacao {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .avaliacao h4 {
+  font-size: 1.2rem;
   color: #1a237e;
-  margin-bottom: 5px;
+}
+
+.avaliacao p {
+  margin: 5px 0;
 }
 
 .avaliacao span {
-  color: #f1c40f;
+  color: #ffb400;
 }
 
 /* Ajuda */
 #ajuda {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
-#ajuda .telefone {
-  font-size: 1.3rem;
+.telefone {
   font-weight: bold;
+  font-size: 1.2rem;
   color: #1a237e;
 }
 
@@ -221,12 +201,21 @@ button:hover, .btn-comprar:hover {
     text-align: center;
   }
 
-  .produto.destaque img {
-    width: 150px;
-    height: 225px;
+  .produto img {
+    width: 120px;
+    height: 180px;
   }
 
-  button, .btn-comprar {
+  .produto-info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .grid-produtos {
+    flex-direction: column;
+  }
+
+  button {
     width: 100%;
   }
 }
