@@ -11,7 +11,6 @@
   <header>
     <div class="search-container">
       <input type="text" class="search-bar" placeholder="Pesquisar produtos..." />
-      <button id="voltar-inicio" style="display:none;">🏠 Voltar à Tela Inicial</button>
     </div>
   </header>
 
@@ -32,7 +31,7 @@
     <h2>eBook em Destaque</h2>
     
     <!-- Produto real com imagem -->
-    <div class="produto destaque" data-nome="como ganhar dinheiro com o celular">
+    <div class="produto destaque">
       <img src="https://raw.githubusercontent.com/gabrielzortt/Venda-de-Ebook/refs/heads/main/capa.jpg" 
            alt="Como Ganhar Dinheiro com o Celular" />
       <div class="produto-info">
@@ -47,7 +46,8 @@
 
     <h2>Outros eBooks</h2>
     <div class="grid-produtos">
-      <div class="produto" data-nome="empreendedorismo digital para iniciantes">
+      <!-- Produto 2 sem imagem -->
+      <div class="produto">
         <div class="produto-info">
           <h3>💻 Empreendedorismo Digital para Iniciantes</h3>
           <p>Aprenda a criar e gerir seu próprio negócio digital com baixo investimento inicial!</p>
@@ -56,7 +56,8 @@
         </div>
       </div>
 
-      <div class="produto" data-nome="investindo para iniciantes">
+      <!-- Produto 3 sem imagem -->
+      <div class="produto">
         <div class="produto-info">
           <h3>📊 Investindo para Iniciantes - Comece com R$ 100</h3>
           <p>Descubra como investir de forma segura mesmo com pouco dinheiro. Ideal para iniciantes!</p>
@@ -65,7 +66,8 @@
         </div>
       </div>
 
-      <div class="produto" data-nome="vendas online">
+      <!-- Produto 4 sem imagem -->
+      <div class="produto">
         <div class="produto-info">
           <h3>💻 Vendas Online - Como Criar Seu Negócio</h3>
           <p>Saiba como construir uma loja virtual, fazer anúncios e gerar vendas de forma automatizada.</p>
@@ -76,49 +78,47 @@
     </div>
   </section>
 
-  <!-- Erro de pesquisa -->
-  <section id="erro-pesquisa" style="display:none; text-align:center; margin-top:20px;">
-    <h3>⚠️ Produto não identificado</h3>
-  </section>
-
-  <!-- FAQ -->
+  <!-- Seção de Dúvidas Frequentes -->
   <section id="duvidas">
     <h2>Dúvidas Frequentes</h2>
-    <div class="faq-cards">
-      <div class="card-faq">
+    <div class="faq">
+      <div class="pergunta card">
         <h4>❓ Como faço para acessar o eBook após a compra?</h4>
         <p>Após a confirmação do pagamento, você receberá um link para download em seu e-mail.</p>
       </div>
-      <div class="card-faq">
+      <div class="pergunta card">
         <h4>❓ Posso ler os eBooks no celular e no computador?</h4>
-        <p>Sim! Nossos eBooks são compatíveis com todos os dispositivos.</p>
+        <p>Sim! Nossos eBooks são compatíveis com todos os dispositivos, incluindo smartphones, tablets e computadores.</p>
       </div>
-      <div class="card-faq">
+      <div class="pergunta card">
         <h4>❓ Existe garantia de satisfação?</h4>
-        <p>Sim, oferecemos 7 dias para solicitar reembolso caso não esteja satisfeito.</p>
+        <p>Sim, oferecemos 7 dias para solicitar reembolso caso não esteja satisfeito com o conteúdo.</p>
       </div>
-      <div class="card-faq">
+      <div class="pergunta card">
         <h4>❓ Os métodos ensinados realmente funcionam?</h4>
-        <p>Sim! Todos os métodos são testados e comprovados por especialistas.</p>
+        <p>Sim! Todos os métodos são testados e comprovados por nossos especialistas no mercado digital.</p>
       </div>
     </div>
   </section>
 
-  <!-- Avaliações -->
+  <!-- Seção de Avaliações -->
   <section id="avaliacoes">
     <h2>Avaliações dos Usuários</h2>
-    <div class="avaliacoes-cards">
-      <div class="card-avaliacao">
-        <h4>⭐ Lucas M.</h4>
-        <p>"Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!"</p>
+    <div class="avaliacoes-geral">
+      <div class="avaliacao card">
+        <h4>Lucas M.</h4>
+        <p>Excelente conteúdo! Consegui aplicar as técnicas e já vi resultados no primeiro mês. Recomendo!</p>
+        <span>⭐⭐⭐⭐⭐</span>
       </div>
-      <div class="card-avaliacao">
-        <h4>⭐ Julia T.</h4>
-        <p>"O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam."</p>
+      <div class="avaliacao card">
+        <h4>Julia T.</h4>
+        <p>O eBook é incrível, muito prático e fácil de entender. As dicas realmente funcionam.</p>
+        <span>⭐⭐⭐⭐⭐</span>
       </div>
-      <div class="card-avaliacao">
-        <h4>⭐ Carlos P.</h4>
-        <p>"Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado."</p>
+      <div class="avaliacao card">
+        <h4>Carlos P.</h4>
+        <p>Aprendi muito em pouco tempo. Material de alta qualidade e bem explicado.</p>
+        <span>⭐⭐⭐⭐⭐</span>
       </div>
     </div>
   </section>
@@ -137,29 +137,35 @@
 
   <!-- Scripts -->
   <script>
+    // FAQ interativo
+    const perguntas = document.querySelectorAll('.faq .pergunta');
+    perguntas.forEach(pergunta => {
+      pergunta.addEventListener('click', () => {
+        pergunta.classList.toggle("ativo");
+      });
+    });
+
+    // Pesquisa em tempo real
     const searchInput = document.querySelector(".search-bar");
-    const produtos = document.querySelectorAll(".produto");
-    const quemSomos = document.getElementById("quem-somos");
-    const outrosEbooks = document.querySelector(".outros-ebooks");
-    const erro = document.getElementById("erro-pesquisa");
-    const btnVoltar = document.getElementById("voltar-inicio");
+    const produtos = document.querySelectorAll(".produto, .destaque");
+    const outrasSecoes = document.querySelectorAll("section:not(.outros-ebooks)");
+    const outrosTitulos = document.querySelectorAll(".outros-ebooks h2");
 
     function filtrarProdutos() {
-      const termo = searchInput.value.toLowerCase().trim();
-      let encontrou = false;
+      const termo = searchInput.value.toLowerCase();
 
       if (termo === "") {
-        quemSomos.style.display = "block";
-        outrosEbooks.style.display = "block";
-        erro.style.display = "none";
-        produtos.forEach(produto => produto.style.display = "flex");
-        btnVoltar.style.display = "none";
+        // Volta à tela inicial
+        produtos.forEach(p => p.style.display = "flex");
+        outrasSecoes.forEach(s => s.style.display = "block");
+        outrosTitulos.forEach(t => t.style.display = "block");
         return;
       }
 
+      let encontrou = false;
       produtos.forEach(produto => {
-        const nome = produto.getAttribute("data-nome").toLowerCase();
-        if (nome.includes(termo)) {
+        const texto = produto.innerText.toLowerCase();
+        if (texto.includes(termo)) {
           produto.style.display = "flex";
           encontrou = true;
         } else {
@@ -167,18 +173,15 @@
         }
       });
 
-      quemSomos.style.display = "none";
-      outrosEbooks.style.display = "block";
-      erro.style.display = encontrou ? "none" : "block";
-      btnVoltar.style.display = "block";
+      outrasSecoes.forEach(s => s.style.display = "none");
+      outrosTitulos.forEach(t => t.style.display = "none");
+
+      if (!encontrou) {
+        document.querySelector(".outros-ebooks").innerHTML = "<h2>Produto não identificado ❌</h2>";
+      }
     }
 
     searchInput.addEventListener("input", filtrarProdutos);
-
-    btnVoltar.addEventListener("click", () => {
-      searchInput.value = "";
-      filtrarProdutos();
-    });
   </script>
 </body>
 </html>
