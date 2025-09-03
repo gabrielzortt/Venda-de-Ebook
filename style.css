@@ -18,6 +18,10 @@ body {
 .search-container {
   text-align: center;
   margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .search-bar {
@@ -38,7 +42,6 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background-color 0.3s;
 }
 
@@ -51,6 +54,10 @@ body {
   margin-top: 40px;
   font-size: 1.1rem;
   color: #444;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #quem-somos h2 {
@@ -59,7 +66,7 @@ body {
   color: #1a237e;
 }
 
-/* Seção de Produtos e Avaliações */
+/* Seção de Produtos */
 .outros-ebooks {
   margin-top: 40px;
 }
@@ -75,30 +82,86 @@ body {
 .produto {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
+  gap: 20px;
 }
 
 .produto img {
   width: 150px;
   height: 225px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .produto-info {
   flex: 1;
-  margin-left: 20px;
 }
 
 .produto-info h3 {
   font-size: 1.6rem;
   color: #2c3e50;
+  margin-bottom: 10px;
 }
 
 .produto-info p {
   font-size: 1.1rem;
   color: #444;
-  margin-bottom: 15
+  margin-bottom: 15px;
+}
+
+.valor {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #1a237e;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a237e;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #283593;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .produto img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .produto-info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* Rodapé */
+footer {
+  background: #1a237e;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
