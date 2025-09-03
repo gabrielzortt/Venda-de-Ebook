@@ -18,10 +18,6 @@ body {
 .search-container {
   text-align: center;
   margin: 40px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
 }
 
 .search-bar {
@@ -34,30 +30,13 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-#voltar-inicio {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  background-color: #283593;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-#voltar-inicio:hover {
-  background-color: #1a237e;
-}
-
 /* Seção Quem Somos */
 #quem-somos {
   margin-top: 40px;
   font-size: 1.1rem;
   color: #444;
-  text-align: center;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
 }
+
 #quem-somos h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -68,6 +47,7 @@ body {
 .outros-ebooks {
   margin-top: 40px;
 }
+
 .outros-ebooks h2 {
   font-size: 2rem;
   text-align: center;
@@ -75,7 +55,7 @@ body {
   color: #1a237e;
 }
 
-/* Estilo do produto */
+/* Produto */
 .produto {
   display: flex;
   flex-direction: row;
@@ -83,119 +63,117 @@ body {
   margin-bottom: 30px;
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
-  gap: 20px;
 }
+
 .produto img {
   width: 150px;
   height: 225px;
   border-radius: 10px;
-  object-fit: cover;
 }
+
 .produto-info {
   flex: 1;
+  margin-left: 20px;
 }
+
 .produto-info h3 {
   font-size: 1.6rem;
   color: #2c3e50;
-  margin-bottom: 10px;
 }
+
 .produto-info p {
   font-size: 1.1rem;
-  color: #444;
   margin-bottom: 15px;
 }
+
 .valor {
   font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #1a237e;
+  margin-bottom: 10px;
 }
+
 button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
+  padding: 10px 20px;
   background-color: #1a237e;
   color: white;
-  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
+
 button:hover {
   background-color: #283593;
 }
 
-/* FAQ Cards */
-.faq-cards {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 20px;
-}
-.card-faq {
-  background: #ffffff;
-  border-left: 6px solid #2980b9;
+/* ====== CARDS ====== */
+.card {
+  background: white;
+  border-radius: 10px;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.card-faq:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
-}
-.card-faq h4 {
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-.card-faq p {
-  margin: 0;
-  color: #555;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Avaliações Cards */
-.avaliacoes-cards {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 20px;
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-.card-avaliacao {
-  background: #fdfdfd;
-  border: 2px solid #f39c12;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.12);
-  transition: transform 0.2s, box-shadow 0.2s;
+
+/* FAQ */
+#duvidas h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #1a237e;
 }
-.card-avaliacao:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
-}
-.card-avaliacao h4 {
+
+.pergunta h4 {
+  font-size: 1.2rem;
+  color: #1a237e;
   margin-bottom: 10px;
-  color: #d35400;
+  cursor: pointer;
 }
-.card-avaliacao p {
-  margin: 0;
-  font-style: italic;
+
+.pergunta p {
+  display: none;
+  font-size: 1rem;
   color: #444;
+}
+
+.pergunta.ativo p {
+  display: block;
+}
+
+/* Avaliações */
+#avaliacoes h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #1a237e;
+}
+
+.avaliacao h4 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.avaliacao span {
+  color: #ff9800;
+  font-size: 1.2rem;
 }
 
 /* Ajuda */
 #ajuda {
   text-align: center;
-  margin-top: 40px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+  margin-top: 50px;
 }
+
 #ajuda h2 {
   color: #1a237e;
-  margin-bottom: 10px;
 }
+
 .telefone {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #2c3e50;
 }
@@ -206,24 +184,12 @@ button:hover {
     flex-direction: column;
     text-align: center;
   }
-  .produto img {
-    width: 100px;
-    height: 150px;
-  }
-  .produto-info {
-    margin-top: 10px;
-  }
-  button {
-    width: 100%;
-  }
-}
 
-/* Rodapé */
-footer {
-  background: #1a237e;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  border-radius: 8px;
+  .produto img {
+    margin-bottom: 15px;
+  }
+
+  .produto-info {
+    margin-left: 0;
+  }
 }
