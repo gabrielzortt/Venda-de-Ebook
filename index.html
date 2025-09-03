@@ -76,9 +76,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Mensagem de produto não identificado -->
+    <div id="produto-invalido" style="display:none; text-align:center; margin-top:20px; font-size:1.2rem; color:red;">
+      Produto não identificado
+    </div>
   </section>
 
-  <!-- Seção de Dúvidas Frequentes -->
+  <!-- FAQ -->
   <section id="duvidas">
     <h2>Dúvidas Frequentes</h2>
     <div class="faq">
@@ -101,7 +106,7 @@
     </div>
   </section>
 
-  <!-- Seção de Avaliações -->
+  <!-- Avaliações -->
   <section id="avaliacoes">
     <h2>Avaliações dos Usuários</h2>
     <div class="avaliacoes-geral">
@@ -123,7 +128,7 @@
     </div>
   </section>
 
-  <!-- Seção de Ajuda -->
+  <!-- Ajuda -->
   <section id="ajuda">
     <h2>Precisa de Ajuda?</h2>
     <p>Se tiver qualquer dúvida ou problema, entre em contato conosco pelo telefone:</p>
@@ -135,7 +140,6 @@
     <p>&copy; 2025 Creators of the Future - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
     // FAQ interativo
     const perguntas = document.querySelectorAll('.faq .pergunta');
@@ -148,31 +152,29 @@
     // Pesquisa funcional
     const searchInput = document.querySelector(".search-bar");
     const produtos = document.querySelectorAll(".produto");
-    const outrosEbooks = document.querySelector(".outros-ebooks");
+    const produtoInvalido = document.getElementById("produto-invalido");
+
     searchInput.addEventListener("input", () => {
       const termo = searchInput.value.toLowerCase().trim();
       let encontrado = false;
 
       if (termo === "") {
-        produtos.forEach(prod => prod.style.display = "flex");
-        outrosEbooks.style.display = "block";
-        document.querySelectorAll(".produto").forEach(p => p.style.display = "flex");
+        produtos.forEach(p => p.style.display = "flex");
+        produtoInvalido.style.display = "none";
         return;
       }
 
-      produtos.forEach(prod => {
-        const nome = prod.getAttribute("data-nome");
+      produtos.forEach(p => {
+        const nome = p.getAttribute("data-nome");
         if (nome.includes(termo)) {
-          prod.style.display = "flex";
+          p.style.display = "flex";
           encontrado = true;
         } else {
-          prod.style.display = "none";
+          p.style.display = "none";
         }
       });
 
-      if (!encontrado) {
-        alert("Produto não identificado");
-      }
+      produtoInvalido.style.display = encontrado ? "none" : "block";
     });
   </script>
 </body>
